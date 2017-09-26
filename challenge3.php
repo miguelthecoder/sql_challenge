@@ -33,7 +33,7 @@ if(!empty($_POST)){
        $prepared->bindParam(':price', $_POST['price']);
        $prepared->bindParam(':color', $_POST['color']);
 
-       $prepare->execute();
+       $prepared->execute();
 
     } catch (Exception $e) {
         echo $e->getMessage();
