@@ -24,9 +24,8 @@ $conn = new PDO('mysql:host=localhost;dbname=MRosas_SQLchallenge_one', 'r2hstude
     echo "</select>";
     echo '</div>';
     echo "</body>";
-    echo '<footer>'
-    echo '<a href="challenge_two.php"></a>'
-    echo '</footer>'
+    echo '<a href="challenge_two.php">'
+    echo '</a>'
     echo "</html>";
 } catch (Exception $e){
    echo $e->getMessage();
