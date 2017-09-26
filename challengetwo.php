@@ -23,7 +23,7 @@ if(!empty($_GET)) {
   try{
 // connect to the DB
 $conn = new PDO('mysql:host=localhost;dbname=MRosas_SQLchallenge_one', 'r2hstudent', 'SbFaGzNgGIE8kfP');
-$color = 'SELECT name, descriptiom, price, color FROM challenge_two WHERE color= :colors ';
+$color = 'SELECT name, description, price, color FROM challenge_two WHERE color= :colors ';
 // prepare preps a statement and returns an object.
 $prepared = $db->prepare($colors);
 /// :colors is just a place holder.
