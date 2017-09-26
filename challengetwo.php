@@ -28,7 +28,7 @@ if(!empty($_GET)) {
   // prepare preps a statement and returns an object.
   $prepared = $conn->prepare($colors);
   /// :colors is just a place holder.
-  $prepared->bindParam('s', $_GET['colors']);
+  $prepared->bind_param('s', $_GET['colors']);
 
   $prepared->execute();
 
