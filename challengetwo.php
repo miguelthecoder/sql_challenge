@@ -17,8 +17,7 @@
       </select>
       <input type="submit" value="submit">
     </form>
-  </body>
-</html>
+  <div class="output">
 <?php
 if(!empty($_GET)) {
   try{
@@ -42,3 +41,5 @@ if(!empty($_GET)) {
   exit;
 }
 }
+?>
+  </div>
