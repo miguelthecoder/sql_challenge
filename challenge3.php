@@ -10,7 +10,7 @@
 <form method="POST" action="success.php">
     <label for="name">Name</label><input id="name" name="name" type="text" />
     <label for="description">Description</label><input type="text" id="description" name="description" />
-    <label for="price">Price</label><input id="price" name="price" type="price" />
+    <label for="price">Price</label><input id="price" name="price" type="text" />
     <label for="color">Color</label><input type="text" id="color" name="color" />
     <input type="submit" value="Submit">
 </form>
