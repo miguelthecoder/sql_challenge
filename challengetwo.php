@@ -28,9 +28,10 @@ if(!empty($_GET)) {
   // prepare preps a statement and returns an object.
   $prepared = $conn->prepare($colors);
   /// :colors is just a place holder.
-  $prepared->bind_param(':color', $_GET['colors']);
+ $prepared->execute(array(‘:colors’ => $_GET[“colors”]));
+ 
 
-  $prepared->execute();
+  $prepared->fetchAll();
 
   foreach($prepared->fetch_assoc() as $colors) {
     echo "<p>{$colors['name']}, {$colors['color']}</p>";
