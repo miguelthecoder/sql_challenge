@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form method="post" action="">
-      <input type="text" name="userNumber" value="">
-      <button type="submit" >Submit</button>
-    </form>
-    <button type="button" name="button" onclick="submitForm()">test</button>
-  </body>
-</html>
-
+<head>
+<title>
+</title>
+</head>
+<body>
+<h1>Challenge 3</h1>
+<form method="POST" action="index.php">
+    <label for="name">Name</label><input id="name" name="name" type="text" />
+    <label for="description">Description</label><input type="text" id="description" name="description" />
+    <label for="price">Price</label><input id="price" name="price" type="price" />
+    <label for="color">Color</label><input type="text" id="color" name="color" />
+    <input type="submit" value="Submit">
+</form>
 <?php
-$conn = new mysqli('localhost', 'root', 'root', 'MRosas');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$sql = "SELECT number FROM submission GROUP BY number";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<div> {$row['number']}</div>";
+if(!empty($_POST)){
+    $conn = new mysqli('localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP', 'MRosas_SQLchallenge_one');
+    try {
+        //this queries what we actually need
+      $query = "INSERT INTO MRosas_SQLchallenge_one.challenge_two (name, description, price, color) VALUES (:name, :description, :price, :color)";
+      // this gets your statement ready
+       $prepared = $conn->prepare($query);
+        $prepared->execute(array(
+           ':name' => $_POST["name"],
+           ':description' => $_POST["description"],
+           ':price' => $_POST["price"],
+           ':color' => $_POST["color"],
+       ));
+    } catch (Exception $e) {
+        echo "Bad query";
+        exit;
     }
-}
-$conn->close();
+    }
 ?>
-<?php
-//connect to DB
-
-header('Content-Type: application/json');
-$requestBody = file_get_contents('php://input');
- $jsonData = json_decode($requestBody);
-$userNumber = $jsonData->userNumber;
-if (isset($userNumber)) {
-  $sql = "INSERT INTO submission (number) VALUES ($userNumber)";
-  if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-
-  $isEven = check_isEven($userNumber);
-  $response = array('isEven' => $isEven);
-  echo json_encode($response);
-}
-function check_isEven($number) {
-  return $number % 2 == 0;
-}
-
- ?>
+</body>
+</html>
