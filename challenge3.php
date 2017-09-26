@@ -6,7 +6,7 @@
 </title>
 </head>
 <body>
-<p>Add Items to the list..</p>
+<h1>Add Items to the list..</h1>
 <form method="POST" action="success.php">
     <label for="name">Name</label><input id="name" name="name" type="text" />
     <label for="description">Description</label><input type="text" id="description" name="description" />
