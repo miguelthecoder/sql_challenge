@@ -24,8 +24,6 @@ $conn = new PDO('mysql:host=localhost;dbname=MRosas_SQLchallenge_one', 'r2hstude
     echo "</select>";
     echo '</div>';
     echo "</body>";
-    echo "<a href='http://mrosas.road2hire.ninja/sql_challenge/challengetwo.php'>""
-    echo '</a>'
     echo "</html>";
 } catch (Exception $e){
    echo $e->getMessage();
