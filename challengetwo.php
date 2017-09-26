@@ -12,7 +12,6 @@
          <option value="Black">Black</option>
          <option value="Denim">Denim</option>
          <option value="Gray">Gray</option>
-         <option value="Khaki">Khaki</option>
          <option value="White">White</option>
       </select>
       <input type="submit" value="submit">
