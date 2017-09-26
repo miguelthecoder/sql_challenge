@@ -28,7 +28,7 @@ $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color
 // prepare preps a statement and returns an object.
 $prepared = $conn->prepare($colors);
 /// :colors is just a place holder.
-$prepared->bidParam(':colors', $GET['colors']);
+$prepared->bindParam(':colors', $GET['colors']);
 
 $prepared->execute();
 
