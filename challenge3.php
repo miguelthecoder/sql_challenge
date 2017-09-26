@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Add Items to the list..</h1>
-<form method="POST" action="challenge3.php">
+<form method="POST" action="success.php">
     <label for="name">Name</label>
     <input id="name" name="name" type="text" />
     <label for="description">Description</label>
