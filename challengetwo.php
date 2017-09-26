@@ -33,8 +33,8 @@ if(!empty($_GET)) {
 
   $prepared->execute();
 
-  foreach($prepared->fetch_assoc() as $colors) {
-    echo "<p>{$colors['name']}, {$colors['color']}</p>";
+  foreach($prepared->fetchALL() as $colorChoice) {
+    echo "<p>{$colorChoice['name']}, {$colorChoice['color']}</p>";
   }
 
 }catch (Exception $e) {
