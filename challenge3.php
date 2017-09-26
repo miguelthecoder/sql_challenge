@@ -23,15 +23,15 @@ if(!empty($_POST)){
       // prepare the statment
        $prepared = $db->prepare($query);
 
-       //from mark's example
-        $prepared->execute(array(
-           ':name' => $_POST["name"],
-           ':description' => $_POST["description"],
-           ':price' => $_POST["price"],
-           ':color' => $_POST["color"],
-       ));
+       $prepared->bindParam(':name', $_POST['name']);
+       $prepared->bindParam(':description', $_POST['description']);
+       $prepared->bindParam(':price', $_POST['price']);
+       $prepared->bindParam(':color', $_POST['color']);
+
+       $prepare->execute();
+
     } catch (Exception $e) {
-        echo "Bad query";
+        echo $e->getMessage();
         exit;
     }
     }
