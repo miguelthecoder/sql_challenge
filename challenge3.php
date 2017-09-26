@@ -11,7 +11,7 @@
     <label for="description">Description</label><input type="text" id="description" name="description" />
     <label for="price">Price</label><input id="price" name="price" type="price" />
     <label for="color">Color</label><input type="text" id="color" name="color" />
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit"> 
 </form>
 <?php
 if(!empty($_POST)){
