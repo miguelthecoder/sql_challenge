@@ -23,15 +23,15 @@
 if(!empty($_GET)) {
   try{
   // connect to the DB
-  $conn = new mysqli('localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP', 'MRosas_SQLchallenge_one');
-  $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = ":color" ';
+  $conn = new PDO('mysql:dbname=MRosas_SQLchallenge_one;host=localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP');
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = ":colors" ';
   // prepare preps a statement and returns an object.
   $prepared = $conn->prepare($colors);
   /// :colors is just a place holder.
- $prepared->execute(array(‘:colors’ => $_GET[“colors”]));
- 
+  $prepared->bindParam(':colors', $_GET['colors']);
 
-  $prepared->fetchAll();
+  $prepared->execute();
 
   foreach($prepared->fetch_assoc() as $colors) {
     echo "<p>{$colors['name']}, {$colors['color']}</p>";
