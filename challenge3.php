@@ -7,15 +7,15 @@
 </head>
 <body>
 <h1>Add Items to the list..</h1>
-<form method="POST" action="success.php">
+<form method="POST" action="challenge3.php">
     <label for="name">Name</label>
-    <input id="name" name="name_" type="text" />
+    <input id="name" name="name" type="text" />
     <label for="description">Description</label>
-    <input type="text" id="description" name="description_" />
+    <input type="text" id="description" name="description" />
     <label for="price">Price</label>
-    <input id="price" name="price_" type="text" />
+    <input id="price" name="price" type="text" />
     <label for="color">Color</label>
-    <input type="text" id="color" name="color_" />
+    <input type="text" id="color" name="color" />
     <input type="submit" value="Submit">
 </form>
 <?php
@@ -28,10 +28,10 @@ if(!empty($_POST)){
       // prepare the statment
        $prepared = $db->prepare($query);
 
-       $prepared->bindParam(':name', $_POST['name_']);
-       $prepared->bindParam(':description', $_POST['description_']);
-       $prepared->bindParam(':price', $_POST['price_']);
-       $prepared->bindParam(':color', $_POST['color_']);
+       $prepared->bindParam(':name', $_POST['name']);
+       $prepared->bindParam(':description', $_POST['description']);
+       $prepared->bindParam(':price', $_POST['price']);
+       $prepared->bindParam(':color', $_POST['color']);
 
        $prepare->execute();
 
