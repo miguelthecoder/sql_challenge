@@ -24,8 +24,8 @@ if(!empty($_GET)) {
   try{
   // connect to the DB
   $conn = new PDO('mysql:dbname=MRosas_SQLchallenge_one;host=localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP');
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = ":colors" ';
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = :colors ';
   // prepare preps a statement and returns an object.
   $prepared = $conn->prepare($colors);
   /// :colors is just a place holder.
