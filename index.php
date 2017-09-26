@@ -7,7 +7,7 @@
 <?php
 // connect to the DB
 try{
-$conn = new PDO('mysql:host=localhost;dbname=MRosas_SQLchallenge_one', 'r2hstudent', 'SbFaGzNgGIE8kfP');
+$conn = new mysqli('localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP', 'MRosas_SQLchallenge_one');
    $result = $conn->query("SELECT state_name FROM challenge_one");
     echo "<html>";
     echo "<body>";
