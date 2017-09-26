@@ -24,7 +24,7 @@ if(!empty($_GET)) {
   try{
 // connect to the DB
 $conn = new mysqli('localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP', 'MRosas_SQLchallenge_one');
-$colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = "red" ';
+$colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = "Khaki" ';
 // prepare preps a statement and returns an object.
 $prepared = $conn->prepare($colors);
 /// :colors is just a place holder.
