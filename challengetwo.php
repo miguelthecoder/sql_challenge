@@ -24,15 +24,15 @@ if(!empty($_GET)) {
   try{
   // connect to the DB
   $conn = new mysqli('localhost', 'r2hstudent', 'SbFaGzNgGIE8kfP', 'MRosas_SQLchallenge_one');
-  $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = "?" ';
+  $colors = 'SELECT name, description, price, color FROM challenge_two WHERE color = ":color" ';
   // prepare preps a statement and returns an object.
   $prepared = $conn->prepare($colors);
   /// :colors is just a place holder.
-  $prepared->bind_param('s', $_GET['colors']);
+  $prepared->bind_param(':color', $_GET['colors']);
 
   $prepared->execute();
 
-  foreach($prepared->fetchAll() as $colors) {
+  foreach($prepared->fetch_assoc() as $colors) {
     echo "<p>{$colors['name']}, {$colors['color']}</p>";
   }
 
